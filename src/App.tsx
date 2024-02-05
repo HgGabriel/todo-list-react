@@ -2,25 +2,14 @@
 import { Header } from "./components/Header/Header";
 import "./styles/global.css";
 import { Tasks } from "./components/Tasks/Tasks";
+import { TasksProvider } from "./context/TasksContext";
 
 function App() {
-  // const [toggle, setToggle] = useState(false);
-
-  // useEffect(() => {
-  //   console.log("Executando função de useEffect");
-
-  //   return () => {
-  //     console.log("Executado quando desmontado");
-  //   };
-  // }, [toggle]);
-
   return (
-    <>
+    <TasksProvider>
       <Header />
       <Tasks />
-
-      {/* <button onClick={() => setToggle(!toggle)}>Toggle</button> */}
-    </>
+    </TasksProvider>
   );
 }
 
