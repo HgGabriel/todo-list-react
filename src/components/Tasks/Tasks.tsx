@@ -43,6 +43,16 @@ export const Tasks: React.FC = () => {
     setTasks(newTasks)
   }
 
+  function handleRemoveTaskEvent(taskId:number) {
+    const newTasks = tasks.filter((task) => {
+     return task.id !== taskId
+    })
+    setTasks(newTasks)
+
+    localStorage.setItem(`tasks`, JSON.stringify(newTasks));
+    
+  }  
+
   return (
     <section className={styles.container}>
       <form onSubmit={handleSubmitAddTask}>
@@ -68,6 +78,7 @@ export const Tasks: React.FC = () => {
                 handleToggleTaskStatus(task.id)
               }}  />
               <label htmlFor={`task-${task.id}`} className={task.done ? styles.done : ''}>{task.title}</label>
+              <button onClick={() => {handleRemoveTaskEvent(task.id)}}>Remover</button>
             </li>
           );
         })}

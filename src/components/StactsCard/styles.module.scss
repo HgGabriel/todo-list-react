@@ -2,10 +2,13 @@
   background-color: #314da6;
   color: white;
 
-  width: 100%;
+  width: 300px;
   padding: 1rem;
   text-align: center;
   border-radius: 5px;
+
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
 
   h2 {
     font-size: 1rem;
@@ -16,6 +19,12 @@
   span {
     font-size: 4rem;
     line-height: 1;
+  }
+}
+
+@media screen and (max-width:412) {
+  .stats_card {
+    width: 20px;
   }
 }
 

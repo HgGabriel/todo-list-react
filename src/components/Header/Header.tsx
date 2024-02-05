@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
         <div>
           <h1>My Todo</h1>
 
-          <span>Bem-Vindo, Hiago</span>
+          <span>Bem-Vindo, User</span>
         </div>
 
         <div>
