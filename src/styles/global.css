@@ -6,4 +6,9 @@
 
 body, button, input, select, option, textarea {
   font-family: 'Cairo', sans-serif;
+  
+}
+
+body {
+  width: 100vw;
 }

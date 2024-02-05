@@ -1,5 +1,5 @@
 .container {
-  max-width: 1240px;
+  max-width: 100%;
   padding: 0 2rem;
   margin: 7rem auto 0;
 
@@ -34,34 +34,54 @@
       outline: outset;
     }
 
-    button:hover{
+    button:hover {
       cursor: pointer;
       background-color: #203169;
       outline: inset;
       transition: 0.5s;
     }
-
   }
 
   ul {
-    list-style:none;
+    list-style: none;
     margin-top: 1rem;
     gap: 1rem;
+    background-color: #314da6;
 
     padding: 0 0.5rem;
     li {
-      display:flex;
+      display: flex;
       align-items: center;
       gap: 0.5rem;
-
-      input {
-        height: 1rem;
-        width: 1rem;
+      white-space: pre-line;
+      justify-content: space-between;
+      
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        input {
+          height: 1rem;
+          width: 1rem;
+        }
+  
+        label {
+          font-size: 1.1rem;
+          max-width: 60vw;
+          word-wrap: break-word;
+          display: -webkit-box;
+          -webkit-line-clamp: 1; /* Número desejado de linhas */
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          color: white;
+        }
+        button {
+          background-color: #314da6;
+          color: white;
+        }
       }
 
-      label {
-        font-size: 1.1rem;
-      }
     }
   }
 }

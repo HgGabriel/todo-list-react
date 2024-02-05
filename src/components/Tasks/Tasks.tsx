@@ -3,11 +3,10 @@ import styles from "./styles.module.scss";
 import { TasksContext } from "../../context/TasksContext";
 // import { title } from "process";
 
-
 export const Tasks: React.FC = () => {
   const [taskTitle, setTaskTitle] = useState("");
 
-  const { tasks, setTasks} = useContext(TasksContext)
+  const { tasks, setTasks } = useContext(TasksContext);
 
   //Função disparada quando for adicionar uma nova tarefa
   function handleSubmitAddTask(event: FormEvent) {
@@ -29,29 +28,28 @@ export const Tasks: React.FC = () => {
     setTaskTitle("");
   }
 
-  function handleToggleTaskStatus(taskId:number) {
+  function handleToggleTaskStatus(taskId: number) {
     const newTasks = tasks.map((task) => {
       if (taskId === task.id) {
         return {
           ...task,
-          done: !task.done
-        }
+          done: !task.done,
+        };
       }
-      return task
+      return task;
     });
 
-    setTasks(newTasks)
+    setTasks(newTasks);
   }
 
-  function handleRemoveTaskEvent(taskId:number) {
+  function handleRemoveTaskEvent(taskId: number) {
     const newTasks = tasks.filter((task) => {
-     return task.id !== taskId
-    })
-    setTasks(newTasks)
+      return task.id !== taskId;
+    });
+    setTasks(newTasks);
 
     localStorage.setItem(`tasks`, JSON.stringify(newTasks));
-    
-  }  
+  }
 
   return (
     <section className={styles.container}>
@@ -74,11 +72,29 @@ export const Tasks: React.FC = () => {
         {tasks.map((task) => {
           return (
             <li key={task.id}>
-              <input type="checkbox" id={`task-${task.id}`} onChange={() => {
-                handleToggleTaskStatus(task.id)
-              }}  />
-              <label htmlFor={`task-${task.id}`} className={task.done ? styles.done : ''}>{task.title}</label>
-              <button onClick={() => {handleRemoveTaskEvent(task.id)}}>Remover</button>
+              <div>
+                <input
+                  type="checkbox"
+                  id={`task-${task.id}`}
+                  onChange={() => {
+                    handleToggleTaskStatus(task.id);
+                  }}
+                />
+                <label
+                  htmlFor={`task-${task.id}`}
+                  className={task.done ? styles.done : ""}
+                >
+                  {task.title}
+                </label>
+              </div>
+              <button
+                onClick={() => {
+                  handleRemoveTaskEvent(task.id);
+                }}
+                className="material-symbols-outlined"
+              >
+                delete 
+              </button>
             </li>
           );
         })}

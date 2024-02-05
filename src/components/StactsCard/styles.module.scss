@@ -2,18 +2,20 @@
   background-color: #314da6;
   color: white;
 
-  width: 300px;
+  width: 100%;
   padding: 1rem;
   text-align: center;
   border-radius: 5px;
-
-  -webkit-line-clamp: 2;
-  text-overflow: ellipsis;
 
   h2 {
     font-size: 1rem;
     margin-bottom: 1rem;
     line-height: 1;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Número desejado de linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   span {
@@ -21,10 +23,3 @@
     line-height: 1;
   }
 }
-
-@media screen and (max-width:412) {
-  .stats_card {
-    width: 20px;
-  }
-}
-
